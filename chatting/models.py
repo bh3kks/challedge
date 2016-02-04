@@ -1,18 +1,17 @@
 from django.db import models
-from django.conf import settings
 
 class User(models.Model):
-	username = models.TextField(max_length=30, blank=False)
-	created = models.DateTimeField(auto_now_add=True)
+    username = models.TextField(max_length=20, blank=False)
+    created = models.DateTimeField(auto_now_add=True)
 
 class Comments(models.Model):
-	# 채팅 한 마디
-	user = models.ForeignKey(settings.AUTH_USER_MODEL)
-	content = models.TextField(max_length=200, blank=False)
-	created = models.DateTimeField(auto_now_add=True)
+    # 채팅 한 마디
+    user = models.ForeignKey(User)
+    content = models.TextField(max_length=200, blank=False)
+    created = models.DateTimeField(auto_now_add=True)
 
 class ChattingRoom(models.Model):
-	# 대학교별 채팅 방
-	name = models.TextField(max_length=50, blank=False)
-	max_user = models.IntegerField(null=30)
-	cur_user = models.IntegerField(null=0)
+    # 대학교별 채팅 방
+    name = models.TextField(max_length=50, blank=False)
+    max_user = models.IntegerField(null=30)
+    cur_user = models.IntegerField(null=0)
