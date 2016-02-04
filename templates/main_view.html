@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="ko">
+
+<head>
+    <title>Challedge</title>
+    <meta charset="utf-8">
+</head>
+
+
+<body>
+	<div id="topbar" style="width:100%;height:60px;background-color:gold;">
+		<FONT size="2" face="consolas" color="#555555">회원이 아니신가요?</FONT>
+	</div>
+
+	<div id="mainframe" style="margin-top:70px;width:100%;height:100%;">
+		<p align="center">
+			<img src="{% static "image/logo.png" %}">
+			<form method="post" action="/chat/">
+				{% csrf_token %}
+				<p align="center">
+					<input type="text" style="height:25px;" id="username" name="username" size="39" 
+						maxlength="25" value="" placeholder="nickname" />
+				</p>
+				<p align="center">
+					<input type="image" src="{% static "image/login_button.png" %}"/>
+				</p>
+			</form>
+		</p>
+	</div>
+
+</body>
+
+</html>
+
+
