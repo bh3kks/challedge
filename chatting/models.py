@@ -1,12 +1,13 @@
 from django.db import models
+from django.conf import settings
 
 class User(models.Model):
-	username = models.TextField(max_length=20, blank=False)
+	username = models.TextField(max_length=30, blank=False)
 	created = models.DateTimeField(auto_now_add=True)
 
 class Comments(models.Model):
 	# 채팅 한 마디
-	user = models.ForeignKey(User)
+	user = models.ForeignKey(settings.AUTH_USER_MODEL)
 	content = models.TextField(max_length=200, blank=False)
 	created = models.DateTimeField(auto_now_add=True)
 
